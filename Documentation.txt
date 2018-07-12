@@ -1,0 +1,24 @@
+Cinema Theater is a console based program written in JAVA facilitates movie seats booking.
+
+Features :
+- Get movie list sorted according to ratings
+- Book seats
+- Get seats confirmation
+- Get theater status
+
+Files and classes :
+
+Theater.java:
+	Seat class
+	Theater class : Collection of Seat objects and related methods.
+
+Movie.java:
+	Movie class : Info about every movie (name,genre,ratings,timing) and related methods.
+	
+Main.java:
+	Main class
+
+Movies.txt:
+	List of movies.
+
+ 
