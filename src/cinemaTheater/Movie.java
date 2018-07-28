@@ -1,7 +1,8 @@
 package cinemaTheater;
 import java.util.*;
+import java.io.*;
 
-public class Movie implements Comparable<Movie>{
+public class Movie implements Comparable<Movie>,Serializable {
 	
 	String name;
 	String genre;

@@ -1,8 +1,9 @@
 package cinemaTheater;
+import java.io.Serializable;
 import java.util.*;
 
 
-class Seat
+class Seat implements Serializable
 {
 	boolean booked;
 	
@@ -39,7 +40,7 @@ class Seat
 }
 
 
-public class Theater {
+public class Theater implements Serializable {
 
 	int capacity;
 	ArrayList<Seat> seats;
