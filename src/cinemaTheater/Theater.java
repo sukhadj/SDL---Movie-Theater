@@ -58,7 +58,7 @@ public class Theater implements Serializable {
 		}
 	}
 	
-	void book_bulk(int n,int row, int col)
+	String book_bulk(int n,int row, int col)
 	{
 		Queue<Integer> cols = new LinkedList<Integer>();
 		
@@ -73,23 +73,23 @@ public class Theater implements Serializable {
 			}
 			col++;	
 		}
-		
+		String str= "";
 		if(cols.size()==n)
 		{
-			System.out.println("====================================================");
-			System.out.println("====================Confirmation====================");
-			System.out.println("Booked seat numbers are");
+			str+="====================================================\n";
+			str+="====================Confirmation====================\n";
+			str+="Booked seat numbers are\n";
 			for(int i=0;i<n;i++)
 			{
 				col = cols.remove();
 				seats.get(row*8+col).book();
-				System.out.println(row+"-"+col+"\n");
+				str+=(row+"-"+col+"\n").toString();
 				
 			}
-			System.out.println("====================================================");
+			str+="====================================================\n";
 		}		
 
-		
+		return str;
 	}	
 
 	void display_status()
@@ -110,7 +110,5 @@ public class Theater implements Serializable {
 	
 	
 	}
-	
-	
 	
 }

@@ -13,13 +13,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.sql.*;
 
 public class Main {
 	
 
 	public static void main(String[] args) {
 
-		ArrayList<Movie> movies = new ArrayList<Movie>(); 
+		/* ArrayList<Movie> movies = new ArrayList<Movie>(); 
 		read_movies(movies);
 		Scanner sc = new Scanner(System.in);
 		int ch;
@@ -52,7 +53,10 @@ public class Main {
 		}
 		}while(ch!=4);
 	
+		*/
 		
+		Database db = new Database();
+		Statement stm = db.connect();
 	}
 	
 	static void read_movies(ArrayList<Movie> movies)

@@ -16,12 +16,12 @@ public static void main(String[] args) throws Exception
 	ArrayList<Movie> movies;
 	Movie m;
 	
-    Socket sock = new Socket("localhost", 6669);
+    Socket sock = new Socket("localhost", 6670);
  	ObjectInputStream oin = new ObjectInputStream(sock.getInputStream());
  	
  	Scanner sc = new Scanner(System.in);
     DataOutputStream dout = new DataOutputStream(sock.getOutputStream());  
-     
+    DataInputStream din = new DataInputStream(sock.getInputStream()); 
      while(choice!=4)
      {
     	 System.out.println("1.Movies \n2.Book \n3.Add new Show \n4.Exit");              
@@ -39,8 +39,16 @@ public static void main(String[] args) throws Exception
 			show_all_movies(movies);
 			int i = sc.nextInt();
 			dout.writeInt(i);
-			m = (Movie)oin.readObject(); 
-			m.book_seats();
+			String str;
+			str = din.readUTF();
+			System.out.println(str);
+			for(int j=0;j<3;j++)
+			{
+				i = sc.nextInt();
+				dout.writeInt(i);
+				str = din.readUTF();
+				System.out.println(str);
+			}
 			break;
 		case(3):
 			movies = (ArrayList<Movie>)oin.readObject();
@@ -75,4 +83,4 @@ public static void main(String[] args) throws Exception
 	
 	}
   
-}                        
+} 

@@ -46,21 +46,24 @@ public class Movie implements Comparable<Movie>,Serializable {
 		this.timing =  sc.nextFloat();
 	}
 	
-	void book_seats()
+	void book_seats(DataInputStream din,DataOutputStream dout) throws Exception
 	{
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter the number of seats to book");
-		int n = sc.nextInt();
+		dout.writeUTF("Enter the number of seats to book");
+		int n = din.readInt();
 	
-		System.out.println("Enter the row of prefrence");
-		int row = sc.nextInt();
+		dout.writeUTF("Enter the row of prefrence");
+		int row = din.readInt();
 
 		
-		System.out.println("Enter the col of prefrence");
-		int col = sc.nextInt();
+		dout.writeUTF("Enter the col of prefrence");
+		int col = din.readInt();
+		
 
-		T.book_bulk(n, row, col);
+		String str = T.book_bulk(n, row, col);
+		
+		dout.writeUTF(str+"Process Completed");
 	}
 	
 	public int compareTo(Movie m)
